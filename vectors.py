@@ -47,12 +47,12 @@ for i in range(len(df)):
 
 selection = [LpVariable(f"vec_{i}", cat=LpBinary) for i in range(len(df))]
 
-prob += lpSum(selection) == 6
+prob += lpSum(selection) == 9
 
-prob += lpSum(x_components[i] * selection[i] for i in range(len(df)))  >= -0.05
-prob += lpSum(y_components[i] * selection[i] for i in range(len(df))) >= -0.05
-prob += lpSum(x_components[i] * selection[i] for i in range(len(df)))  <= 0.05
-prob += lpSum(y_components[i] * selection[i] for i in range(len(df))) <= 0.05=
+prob += lpSum(x_components[i] * selection[i] for i in range(len(df)))  >= 0.00
+prob += lpSum(y_components[i] * selection[i] for i in range(len(df))) >= 0.00
+prob += lpSum(x_components[i] * selection[i] for i in range(len(df)))  <= 0.00
+prob += lpSum(y_components[i] * selection[i] for i in range(len(df))) <= 0.00
 
 prob.solve()
 
